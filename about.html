@@ -4,37 +4,73 @@
   <meta charset="UTF-8">
   <title>About Us — Salem Dominion Ministries</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/about.css">
 </head>
 <body>
 
+<!-- ================= HEADER ================= -->
 <header class="nav">
+
+  <!-- Logo -->
   <div class="logo-container">
-    <a href="index.html">
-      <img src="images/logo.png" alt="Salem Dominion Ministries Logo" class="logo-img">
-    </a>
+    <img src="images/logo.png" alt="Salem Dominion Ministries logo" class="logo-img">
     <strong>Salem Dominion Ministries</strong>
   </div>
-<!-- Hamburger menu button (mobile) -->
+
+  <!-- Hamburger button -->
   <button class="hamburger" aria-label="Toggle navigation">
-    <span class="index.html"></span>
-    <span class="leadership.html"></span>
-    <span class="contact.html"></span>
-    <span class="ministries.html"></span>
-    <span class="plan-visit.html"></span>
-     <span class="prayer-request.html"></span>
-    <span class="sermons.html"></span>
-    <span class="testimonies.html"></span>
+    <span></span>
+    <span></span>
+    <span></span>
   </button>
-  <nav>
+
+  <!-- Navigation links -->
+  <nav class="nav-links">
     <a href="index.html">Home</a>
     <a href="leadership.html">Leadership</a>
     <a href="ministries.html">Ministries</a>
+    <a href="sermons.html">Sermons</a>
+    <a href="testimonies.html">Testimonies</a>
+    <a href="plan-visit.html">Plan a Visit</a>
+    <a href="prayer-request.html">Prayer Request</a>
     <a href="contact.html">Contact</a>
     <a href="donate.html" class="btn">Give</a>
   </nav>
 </header>
 
+<!-- ================= HERO SLIDER (3 IMAGES) ================= -->
+<section class="hero" aria-label="Church highlights">
+
+  <!-- Slide 1 -->
+  <div class="slide active" style="background-image:url('images/hero1.jpg')" role="img" aria-label="Congregation">
+    <div class="slide-content centered">
+      <h2>Meet Our Church Family</h2>
+      <p>Grow in faith together with a loving congregation and meaningful fellowship.</p>
+      <a href="plan-visit.html" class="btn">Plan a Visit</a>
+    </div>
+  </div>
+
+  <!-- Slide 2 -->
+  <div class="slide" style="background-image:url('images/hero4.JPG')" role="img" aria-label="Pastor preaching">
+    <div class="slide-content centered">
+      <h2>Inspiring Sermons</h2>
+      <p>Hear powerful messages from our Pastor to guide you in your spiritual journey.</p>
+      <a href="sermons.html" class="btn">Watch Sermons</a>
+    </div>
+  </div>
+
+  <!-- Slide 3 -->
+  <div class="slide" style="background-image:url('images/hero4.jpg')" role="img" aria-label="Choir worship">
+    <div class="slide-content centered">
+      <h2>Lift Your Spirit with Music</h2>
+      <p>Join our choir and experience the joy of praise through beautiful music.</p>
+      <a href="events.html" class="btn">See Upcoming Events</a>
+    </div>
+  </div>
+
+</section>
+
+<!-- ================= ABOUT CONTENT ================= -->
 <section class="container">
   <h1>About Us</h1>
 
@@ -54,28 +90,34 @@
     <li>Community Impact</li>
     <li>Excellence in Service</li>
   </ul>
+
+  <!-- ================= PASTOR SECTION ================= -->
+  <section class="pastor-message">
+    <h2>Message from Our Pastor</h2>
+    <div class="pastor-container">
+      <img src="images/pastor.webp" alt="Pastor John Doe" class="pastor-img">
+      <div class="pastor-text">
+        <p>"Welcome to Salem Dominion Ministries! Our church exists to nurture faith, encourage community, and share the love of Christ. Through prayer, worship, and service, we aim to empower every believer. My favorite scripture is Philippians 4:13: 'I can do all things through Christ who strengthens me.' May God bless you!"</p>
+      </div>
+    </div>
+  </section>
 </section>
 
 <!-- ================= FOOTER ================= -->
 <footer>
   <div class="footer-top container">
-    <!-- About / Description -->
-<div class="footer-about">
-  <a href="index.html" class="footer-logo">Salem Dominion Ministries Church</a>
-  <p class="footer-desc">
-    A welcoming community of faith, growing together in God's love and grace since 1985.
-  </p>
-  <p class="footer-desc">Join us as we worship, serve, and grow.</p>
+    <div class="footer-about">
+      <a href="index.html" class="footer-logo">Salem Dominion Ministries Church</a>
+      <p class="footer-desc">A welcoming community of faith, growing together in God's love and grace since 1985.</p>
+      <p class="footer-desc">Join us as we worship, serve, and grow.</p>
+      <div class="social-icons">
+        <a href="#" aria-label="Facebook">F</a>
+        <a href="#" aria-label="Twitter">T</a>
+        <a href="#" aria-label="Instagram">I</a>
+        <a href="#" aria-label="YouTube">Y</a>
+      </div>
+    </div>
 
-  <div class="social-icons">
-    <a href="#" aria-label="Facebook">F</a>
-    <a href="#" aria-label="Twitter">T</a>
-    <a href="#" aria-label="Instagram">I</a>
-    <a href="#" aria-label="YouTube">Y</a>
-  </div>
-</div>
-
-    <!-- Quick Links -->
     <div class="footer-links">
       <h3><strong>Quick Links</strong></h3>
       <ul>
@@ -90,7 +132,6 @@
       </ul>
     </div>
 
-    <!-- Service Times -->
     <div class="footer-times">
       <h3>Service Times</h3>
       <ul>
@@ -101,7 +142,6 @@
       </ul>
     </div>
 
-    <!-- Contact -->
     <div class="footer-contact">
       <h3>Contact Us</h3>
       <p>123 Faith Avenue, Nairobi, Kenya</p>
@@ -111,12 +151,12 @@
     </div>
   </div>
 
-  <!-- Footer Bottom -->
   <div class="footer-bottom container">
     <p>© 2026 Salem Dominion Ministries Church. All rights reserved.</p>
-    <p>Developed by CTIA Uganda </p>
+    <p>Developed by CTIA Uganda</p>
   </div>
 </footer>
-<script src="js/scripts.js"></script>
+
+<script src="js/about.js"></script>
 </body>
 </html>

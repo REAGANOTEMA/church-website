@@ -1,86 +1,133 @@
-// ================= HERO SLIDER =================
-let slides = document.querySelectorAll('.hero .slide');
+// ================= HERO SLIDER WITH VIDEO FIRST =================
+const slides = document.querySelectorAll('.hero .slide');
 let currentSlide = 0;
+let sliderInterval;
 
-// Initialize slides
-slides.forEach((slide, index) => {
-  if (index === 0) slide.classList.add('active');
-  let content = slide.querySelector('.slide-content');
-  if (content) {
-    content.style.opacity = index === 0 ? 1 : 0;
-    content.style.transform = index === 0 ? 'translateY(0)' : 'translateY(20px)';
-  }
-});
+// Fonts for magical/bold headers
+const heroFonts = [
+  'Georgia, serif',
+  'Palatino, serif',
+  'Garamond, serif',
+  'Tahoma, sans-serif',
+  'Verdana, sans-serif',
+  'Courier New, monospace',
+  'Lucida Console, monospace'
+];
 
-// Function to show next slide
-function nextSlide() {
-  let currentContent = slides[currentSlide].querySelector('.slide-content');
-  if (currentContent) {
-    currentContent.style.opacity = 0;
-    currentContent.style.transform = 'translateY(20px)';
-  }
-
-  slides[currentSlide].classList.remove('active');
-  currentSlide = (currentSlide + 1) % slides.length;
-  slides[currentSlide].classList.add('active');
-
-  let nextContent = slides[currentSlide].querySelector('.slide-content');
-  if (nextContent) {
-    setTimeout(() => {
-      nextContent.style.opacity = 1;
-      nextContent.style.transform = 'translateY(0)';
-      // Animate header font styles randomly for magical effect
-      const fonts = ['Georgia', 'Palatino', 'Garamond', 'Tahoma', 'Verdana', 'Courier New', 'Lucida Console'];
-      const header = nextContent.querySelector('h2');
-      if (header) {
-        header.style.fontFamily = fonts[Math.floor(Math.random() * fonts.length)];
-      }
-    }, 200);
+// Function to handle video play/pause
+function handleVideo(slide, active) {
+  const video = slide.querySelector('video');
+  if (!video) return;
+  if (active) {
+    video.currentTime = 0;
+    video.play().catch(()=>{});
+  } else {
+    video.pause();
   }
 }
 
-// Slide interval every 5 seconds
-let slideInterval = setInterval(nextSlide, 5000);
+// Show a specific slide
+function showSlide(index) {
+  slides.forEach((slide, i) => {
+    const content = slide.querySelector('.slide-content');
+    if (i === index) {
+      slide.classList.add('active');
+      handleVideo(slide, true);
+      if (content) {
+        setTimeout(() => {
+          content.style.opacity = 1;
+          content.style.transform = 'translateY(0)';
+          // Random bold/magical font for header
+          const header = content.querySelector('h2');
+          if (header) header.style.fontFamily = heroFonts[Math.floor(Math.random() * heroFonts.length)];
+        }, 200);
+      }
+    } else {
+      slide.classList.remove('active');
+      handleVideo(slide, false);
+      if (content) {
+        content.style.opacity = 0;
+        content.style.transform = 'translateY(20px)';
+      }
+    }
+  });
+  currentSlide = index;
+}
 
-// ================= SLIDE BUTTON SHAKE =================
-let shakeButtons = document.querySelectorAll('.hero .slide .btn');
+// Go to next slide
+function nextSlide() {
+  const next = (currentSlide + 1) % slides.length;
+  showSlide(next);
+}
 
-function shakeSlideButtons() {
-  shakeButtons.forEach(btn => {
+// Start automatic slider
+function startSlider() {
+  sliderInterval = setInterval(nextSlide, 5000);
+}
+
+// Stop automatic slider
+function stopSlider() {
+  clearInterval(sliderInterval);
+}
+
+// ================= BUTTON SHAKE =================
+function shakeHeroButtons() {
+  document.querySelectorAll('.hero .btn-3d').forEach(btn => {
     btn.classList.add('shake');
     setTimeout(() => btn.classList.remove('shake'), 600);
   });
 }
+// Shake every 60 seconds
+setInterval(shakeHeroButtons, 60000);
 
-// Shake buttons every 3 seconds
-setInterval(shakeSlideButtons, 3000);
-
-// ================= SMOOTH SCROLL FOR CTA LINKS =================
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function(e) {
-    e.preventDefault();
-    document.querySelector(this.getAttribute('href')).scrollIntoView({
-      behavior: 'smooth'
+// ================= INIT SLIDER =================
+if (slides.length > 0) {
+  const firstVideo = slides[0].querySelector('video');
+  if (firstVideo) {
+    firstVideo.muted = true;
+    firstVideo.play().catch(()=>{});
+    firstVideo.addEventListener('ended', () => {
+      showSlide(1); // Start with first image slide after video
+      startSlider();
     });
-  });
-});
+  } else {
+    // No video, start normal slider
+    showSlide(0);
+    startSlider();
+  }
+}
 
-// ================= FORM SUBMISSION =================
-const forms = document.querySelectorAll('form');
-forms.forEach(form => {
-  form.addEventListener('submit', function(e) {
-    e.preventDefault();
-    alert('Thank you! Your message or prayer request has been submitted.');
-    form.reset();
-  });
-});
+// Pause on hover for premium UX
+const hero = document.querySelector('.hero');
+if (hero) {
+  hero.addEventListener('mouseenter', stopSlider);
+  hero.addEventListener('mouseleave', startSlider);
+}
 
-// ================= HAMBURGER MENU (MOBILE) =================
+// ================= HAMBURGER MENU =================
 const hamburger = document.querySelector('.hamburger');
 const navLinks = document.querySelector('.nav-links');
 
-hamburger.addEventListener('click', () => {
-  navLinks.classList.toggle('open');
-  // Animate hamburger bars
-  hamburger.classList.toggle('active');
+if (hamburger && navLinks) {
+  hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('open');
+    hamburger.classList.toggle('active');
+  });
+  // Close menu when link clicked (mobile)
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      hamburger.classList.remove('active');
+    });
+  });
+}
+
+// ================= SMOOTH SCROLL =================
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    const target = document.querySelector(this.getAttribute('href'));
+    if (!target) return;
+    e.preventDefault();
+    target.scrollIntoView({ behavior: 'smooth' });
+  });
 });
