@@ -9,23 +9,18 @@
 </head>
 <body>
 
-<!-- HEADER -->
+<!-- ================= HEADER ================= -->
 <header class="nav">
-
-  <!-- Logo -->
   <div class="logo-container">
     <img src="images/logo.png" alt="Salem Dominion Ministries logo" class="logo-img">
     <strong>Salem Dominion Ministries</strong>
   </div>
-
-  <!-- Hamburger button -->
   <button class="hamburger" aria-label="Toggle navigation">
     <span></span>
     <span></span>
     <span></span>
   </button>
 
-  <!-- Navigation links -->
   <nav class="nav-links">
     <a href="index.html">Home</a>
     <a href="leadership.html">Leadership</a>
@@ -37,98 +32,127 @@
     <a href="contact.html">Contact</a>
     <a href="donate.html" class="btn">Give</a>
   </nav>
-
 </header>
- <!-- ================= HERO SLIDER (7 IMAGES) ================= --> 
+
+<!-- ================= HERO VIDEO ================= -->
 <section class="hero" aria-label="Church highlights">
-
- <!-- Slide 1 (VIDEO) -->
-<div class="slide active" aria-label="Worship service">
-
-  <video class="hero-video" autoplay muted playsinline preload="auto">
-    <source src="videos/hero1.mp4" type="video/mp4">
-  </video>
-
-  <div class="slide-content">
-    <h2>Join Our Worship Services</h2>
-    <p>Experience uplifting worship and connect with our faith community every Sunday.</p>
-    <a href="about.html" class="btn">Learn More</a>
+  <div class="slide active">
+    <video class="hero-video" autoplay muted loop playsinline>
+      <source src="videos/hero1.mp4" type="video/mp4">
+    </video>
+    <div class="slide-content centered">
+      <div class="btn-group">
+        <a href="sermons.html" class="btn shake">Watch Sermons Live</a>
+        <a href="plan-visit.html" class="btn shake">Join Our Team</a>
+      </div>
+    </div>
   </div>
 
-</div>
+  <!-- Image fallback slides -->
+  <div class="slide" style="background-image: url('images/hero2.webp');"></div>
+  <div class="slide" style="background-image: url('images/hero1.webp');"></div>
 </section>
 
-  <!-- ================= WELCOME MESSAGE ================= -->
-  <section class="container">
-    <h1>Welcome to our church family!</h1>
-    <p>We are delighted that you have taken the time to visit our website. Our church is a place of worship, growth, love, and transformation. Whether you are new to faith, searching for hope, or looking for a spiritual home, you are warmly welcome here.</p>
-    <p>Our desire is to see lives changed by the power of God’s Word and to help every believer grow into their God-given purpose.</p>
-    <p><strong>– Pastor [Name]</strong></p>
-  </section>
+<!-- ================= WELCOME & INTRO ================= -->
+<section class="container welcome-section fade-in-up">
+  <h1>Welcome to Grace Church</h1>
+  <h2>A Community Rooted in Faith & Love</h2>
+  <p>
+    At Grace Community Church, we believe in the power of worship, fellowship, and service. 
+    Our doors are open to everyone — whether you're a lifelong believer or just beginning your spiritual journey.
+  </p>
+  <p>
+    Founded in 1985, we've been serving our community with love, compassion, and the message of hope through Jesus Christ. 
+    Come as you are and experience God's grace.
+  </p>
+</section>
 
-  <!-- ================= MISSION & VISION ================= -->
-  <section class="container">
-    <h2>Our Mission</h2>
-    <p>To spread the Gospel of Jesus Christ, disciple believers, and transform communities through love, service, and faith.</p>
+<!-- ================= OUR STORY ================= -->
+<section class="container our-story fade-in-up delay-1">
+  <h2>Our Story</h2>
+  <p>Church community — <strong>38+ Years of Ministry</strong></p>
+</section>
 
-    <h2>Our Vision</h2>
-    <p>To build a Christ-centered community that impacts generations spiritually, socially, and economically.</p>
-  </section>
-
-  <!-- ================= SERVICE TIMES ================= -->
-  <section class="container">
-    <h2>Service Times</h2>
-    <ul>
-      <li>Sunday First Service – 8:00 AM</li>
-      <li>Sunday Second Service – 10:30 AM</li>
-      <li>Midweek Prayer – Wednesday 5:30 PM</li>
-      <li>Youth Fellowship – Friday 5:00 PM</li>
-    </ul>
-  </section>
-
-  <!-- ================= UPCOMING EVENTS ================= -->
-  <section class="container">
-    <h2>Upcoming Events</h2>
-    <ul>
-      <li>Annual Prayer & Fasting – March 10–15</li>
-      <li>Youth Conference – April 12</li>
-      <li>Women’s Fellowship Breakfast – April 20</li>
-      <li>Community Outreach Day – May 3</li>
-    </ul>
-  </section>
-
-  <!-- ================= MINISTRIES PREVIEW ================= -->
-  <section class="container">
-    <h2>Our Ministries</h2>
-    <div class="grid grid-3">
-      <div class="card"><h3>Children’s Ministry</h3><p>Safe and joyful environment for children.</p></div>
-      <div class="card"><h3>Youth Ministry</h3><p>Empowering young people to live boldly for Christ.</p></div>
-      <div class="card"><h3>Women’s Ministry</h3><p>Encouraging spiritual and personal growth.</p></div>
-      <div class="card"><h3>Men’s Ministry</h3><p>Equipping men to lead with integrity.</p></div>
-      <div class="card"><h3>Worship Team</h3><p>Leading the congregation into God’s presence.</p></div>
-      <div class="card"><h3>Outreach / Evangelism</h3><p>Sharing God’s love beyond church walls.</p></div>
+<!-- ================= LATEST SERMONS / YOUTUBE ================= -->
+<section class="container latest-sermons fade-in-up delay-2">
+  <h2>Latest Messages</h2>
+  <div class="sermons-grid">
+    <!-- 3D Box 1 -->
+    <div class="sermon-box">
+      <iframe width="100%" height="220" 
+        src="https://www.youtube.com/embed/live_stream?channel=YourChannelID1" 
+        title="Live Sermon 1" frameborder="0" allowfullscreen>
+      </iframe>
+      <h3>Sunday Morning Service</h3>
+      <p>Catch our latest live sermon and be encouraged in faith.</p>
     </div>
-  </section>
+    <!-- 3D Box 2 -->
+    <div class="sermon-box">
+      <iframe width="100%" height="220" 
+        src="https://www.youtube.com/embed/live_stream?channel=YourChannelID2" 
+        title="Live Sermon 2" frameborder="0" allowfullscreen>
+      </iframe>
+      <h3>Wednesday Bible Study</h3>
+      <p>Join us online for spiritual growth and fellowship midweek.</p>
+    </div>
+  </div>
+  <a href="sermons.html" class="btn">View All Sermons</a>
+</section>
 
-  <!-- ================= CALL TO ACTION ================= -->
-  <section class="container" aria-label="Call to action">
-    <h2>Get Connected</h2>
+<!-- ================= UPCOMING EVENTS ================= -->
+<section class="container upcoming-events fade-in-up delay-3">
+  <h2>Upcoming Events</h2>
+  <ul>
+    <li><strong>Mar 2:</strong> Sunday Worship Service — 8:00 AM & 10:30 AM</li>
+    <li><strong>Mar 5:</strong> Wednesday Bible Study — 6:30 PM</li>
+    <li><strong>Mar 8:</strong> Women's Fellowship Brunch — 10:00 AM</li>
+    <li><strong>Mar 15:</strong> Community Outreach Day — 9:00 AM</li>
+  </ul>
+  <a href="events.html" class="btn">All Events</a>
+</section>
+
+<!-- ================= MINISTRIES ================= -->
+<section class="container ministries fade-in-up delay-4">
+  <h2>Our Ministries</h2>
+  <div class="grid grid-2-3d">
+    <div class="card">
+      <h3>Bible Study</h3>
+      <p>Deepening our understanding of God's Word through weekly study groups.</p>
+    </div>
+    <div class="card">
+      <h3>Worship & Arts</h3>
+      <p>Praising God through music, drama, and creative expression.</p>
+    </div>
+    <div class="card">
+      <h3>Youth Ministry</h3>
+      <p>Empowering the next generation to live boldly for Christ.</p>
+    </div>
+    <div class="card">
+      <h3>Community Outreach</h3>
+      <p>Serving our neighbors and showing God's love in action.</p>
+    </div>
+  </div>
+  <a href="ministries.html" class="btn">Explore Ministries</a>
+</section>
+
+<!-- ================= CALL TO ACTION ================= -->
+<section class="container call-to-action fade-in-up delay-5">
+  <h2>Get Connected</h2>
+  <div class="btn-group">
     <a href="visit.html" class="btn">Plan a Visit</a>
     <a href="livestream.html" class="btn">Watch Online</a>
     <a href="donate.html" class="btn">Give Online</a>
-  </section>
+  </div>
+</section>
 
- <!-- ================= FOOTER ================= -->
+<!-- ================= FOOTER ================= -->
 <footer>
   <div class="footer-top container">
-    <!-- About / Description -->
     <div class="footer-about">
       <div class="footer-logo">Salem Dominion Ministries Church</div>
       <p class="footer-desc">
         A welcoming community of faith, growing together in God's love and grace since 1985.
       </p>
-      <p class="footer-desc">Join us as we worship, serve, and grow.</p>
-
       <div class="social-icons">
         <a href="#" aria-label="Facebook">F</a>
         <a href="#" aria-label="Twitter">T</a>
@@ -136,8 +160,6 @@
         <a href="#" aria-label="YouTube">Y</a>
       </div>
     </div>
-
-    <!-- Quick Links -->
     <div class="footer-links">
       <h3>Quick Links</h3>
       <ul>
@@ -152,8 +174,6 @@
         <li><a href="donate.html">Donate</a></li>
       </ul>
     </div>
-
-    <!-- Service Times -->
     <div class="footer-times">
       <h3>Service Times</h3>
       <ul>
@@ -163,8 +183,6 @@
         <li>Saturday Prayer: 7:00 AM</li>
       </ul>
     </div>
-
-    <!-- Contact -->
     <div class="footer-contact">
       <h3>Contact Us</h3>
       <p>123 Faith Avenue, Nairobi, Kenya</p>
@@ -173,12 +191,12 @@
     </div>
   </div>
 
-  <!-- Footer Bottom -->
   <div class="footer-bottom container">
     <p>© 2026 Salem Dominion Ministries Church. All rights reserved.</p>
     <p>Developed by CTIA Technology — Reagan Otema</p>
   </div>
 </footer>
-  <script src="js/scripts.js"></script>
+
+<script src="js/scripts.js"></script>
 </body>
 </html>
